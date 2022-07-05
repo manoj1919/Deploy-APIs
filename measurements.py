@@ -122,7 +122,7 @@ def write_measurements(client,container,cursor,ts):
             return
         try:
             ue_iperf_run=container.exec_run(['sh', '-c', ue_listen_iperf])
-            ext_iperf_run=ext_container.exec_run(['sh', '-c', ext_ping_iperf])
+            ext_iperf_run=ext_container[0].exec_run(['sh', '-c', ext_ping_iperf])
             temp1=(ext_iperf_run.output.decode("utf-8"))
             temp2 = [int(s) for s in temp1.split() if s.isdigit() and int(s)>100]
             temp2 =sum(temp2)/len(temp2)
