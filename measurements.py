@@ -117,7 +117,7 @@ def write_measurements(client,container,cursor,ts):
         print("GNB name",gnb_name)
         gnb_Container = client.containers.list(filters={"name":gnb_name.strip()})
         
-        if len(container[0].name)==0:
+        if len(container.name)==0:
             print ("UE container not found with given name")
             return
         try:
