@@ -444,7 +444,8 @@ def get_Application_Details()-> dict:
 def deploy_Scenario(CN_Make: CN_options,CN_Quantity,RAN_Make: RAN_options,RAN_Quantity,Cameras_Make: UE_options,Cameras_Quantity,Sensors_Make: UE_options,Sensors_Quantity,AGVs_Make:UE_options,AGVs_Quantity,Actuators_Make:UE_options,Actuators_Quantity,Others_Make:UE_options, Other_Quantity):
     if CN_Make == 'OAI' and RAN_Make == 'OAI':
         print("OAI CN and OAI RAN")
-        os.chdir('../')
+        os.chdir('~')
+        print (os.path.curdir)
         #check if directory already exists
         if os.path.isdir('openairinterface-5g'):
             print('True')
