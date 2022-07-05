@@ -2,7 +2,7 @@ import docker
 from fastapi import FastAPI, HTTPException, Form, Path, Query
 from enum import Enum
 # import packets
-from flask import Flask, request, jsonify
+#from flask import Flask, request, jsonify
 import urllib, json
 #from fastapi.exception_handlers import (
 #    http_exception_handler,
@@ -343,7 +343,8 @@ def get_packets(client,id):
     monitor_nf={"NF_packets":''}
     container=client.containers.list(filters={"id":id})
     monitor_nf["NF_packets"]=packets.get_packets(container[0].name)
-    return jsonify(monitor_nf),200
+    return monitor_nf
+    #return jsonify(monitor_nf),200
 
 def get_network_attention(tag_issue,CMessage,CSite,CSwitch,CPort,CID):
     network_attention = [{"Tag":tag_issue,"Message" : CMessage, "Site" : CSite,"Switch":CSwitch, "Port": CPort,"ID":CID}]      
@@ -1243,7 +1244,8 @@ def get_packets(id):
     client=docker.from_env()
     container=client.containers.list(filters={"id":id})
     monitor_nf["NF_packets"]=packets.get_packets(container[0].name)
-    return jsonify(monitor_nf)
+    #return jsonify(monitor_nf)
+    return monitor_nf
 ######################################################################################################################################################
 @app.get(
     '/get_NetworkAttentions/', 
