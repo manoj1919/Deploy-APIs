@@ -1374,7 +1374,7 @@ def get_traffic():
 
 
 #uvicorn.run(app)
-#uvicorn.run(app, host = "0.0.0.0", port = 3001, log_level = "debug", debug = True)
+uvicorn.run(app, host = "0.0.0.0", port = 3002, log_level = "debug", debug = True)
 
 #docker_deploy('OAI','OAI')
 #client=docker.from_env()
