@@ -445,7 +445,7 @@ def get_Application_Details()-> dict:
 def deploy_Scenario(CN_Make: CN_options,CN_Quantity,RAN_Make: RAN_options,RAN_Quantity,Cameras_Make: UE_options,Cameras_Quantity,Sensors_Make: UE_options,Sensors_Quantity,AGVs_Make:UE_options,AGVs_Quantity,Actuators_Make:UE_options,Actuators_Quantity,Others_Make:UE_options, Other_Quantity):
     if CN_Make == 'OAI' and RAN_Make == 'OAI':
         print("OAI CN and OAI RAN")
-        os.chdir('~')
+        os.chdir('../')
         print (os.path.curdir)
         #check if directory already exists
         if os.path.isdir('openairinterface-5g'):
@@ -1032,7 +1032,7 @@ def get_NetworkStats(id):
     client=docker.from_env()
     container = client.containers.get(id)
     run=container.exec_run(['sh', '-c', str2])
-    temp1=(run.decode("utf-8"))
+    temp1=run#(run.decode("utf-8"))
     out1 = [int(s) for s in temp1.split() if s.isdigit() and int(s)>100]
     ulTh = sum(out1[0:tT+1])/len(out1[0:tT+1])
     #print(ulTh)
