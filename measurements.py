@@ -129,8 +129,6 @@ def write_measurements(client,container,cursor,ts):
             temp2 =sum(temp2)/len(temp2)
             ue_ping_run=container.exec_run(['sh', '-c', ue_ping_cmd])
             result=ue_ping_run.output.decode("utf-8")
-            for r in re:
-                if r[0].is_digit():
             lat=[int(r.split(' ms')[0]) for r in result.split('time=') if r[0].is_digit()]      
             dl_thp = temp2 # bits per second
             ul_thp = 0#temp2['upload']
